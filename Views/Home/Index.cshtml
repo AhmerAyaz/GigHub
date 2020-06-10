@@ -1,0 +1,63 @@
+﻿@model GigHub.ViewModels.HomeViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<ul class="gigs">
+    @foreach(var gig in Model.Gigs)
+    {
+    <li>
+        <div class="date">
+            <div class="month">@gig.DateTime.ToString("MMM")</div>
+            <div class="day">@gig.DateTime.ToString("d ")</div>
+        </div>
+        <div class="details">
+            <span class="artist">
+                @gig.Artist.Name
+                @if (Model.ShowActions)
+                {
+                    <button data-followee-id="@gig.ArtistId" class="btn btn-link js-toggle-follow">Follow</button>
+                }
+            </span>
+            <span class="genre">@gig.Genre.Name</span>
+            @if (Model.ShowActions)
+            {
+                <button data-gig-id="@gig.Id" class="btn btn-default btn-sm js-toggle-attendance pull-right">Going?</button>
+            }
+        </div>
+    </li>   
+    }
+</ul>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $(".js-toggle-attendance").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/attendances", {GigId: button.attr("data-gig-id")})
+                    .done(function () {
+                        button
+                        .removeClass("btn-default")
+                        .addClass("btn-info")
+                        .text("Going");
+                    })
+                    .fail(function () {
+                        alert("Something Failed!");
+                    });
+            });
+            $(".js-toggle-follow").click(function (e) {
+                var link = $(e.target);
+                $.post("/api/followers", {Followee: link.attr("data-followee-id")})
+                    .done(function () {
+                        link
+                        .removeClass("btn-link")
+                        .addClass("btn-info")
+                        .text("Following");
+                    })
+                    .fail(function () {
+                        alert("Something Failed!");
+                    });
+            });
+        });
+    </script>
+    }

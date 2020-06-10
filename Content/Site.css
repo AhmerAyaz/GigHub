@@ -1,0 +1,156 @@
+﻿body {
+    padding-top: 90px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*Validation message Override*/
+span.field-validation-error {
+    color: red;
+    font-weight: bold;
+}
+
+/* Bootstrap Overrides */
+.navbar-inverse{
+    background-color: #ff4342;
+    border-color: #ff4342;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+
+    background-color: #de0a0973;
+}
+.navbar-brand {
+    font-weight: 700;
+}
+.navbar-inverse .notifications {
+    position: relative;
+}
+.navbar-inverse .notifications .badge {
+    position: absolute;
+    top: 8px;
+    right: -1px;
+    background:#a80a0a;
+}
+body{
+    font-size: 17px;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-control {
+    font-size: 17px;
+    border-radius: 9px;
+    height: 44px;
+}
+    .form-control:focus {
+        border-color: #337ab7;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+.btn {
+    padding: 7px 20px;
+    /*font-size: 17px;
+    border-radius: 9px;*/
+}
+
+/*Page Specific styling*/
+/*Immediate li element after gigs*/
+.gigs{
+
+    list-style:none;
+}
+
+.gigs > li {
+    position: relative;
+    margin-bottom: 30px;
+} 
+.gigs > li .details {
+    position: absolute;
+    top: 0;
+    left: 70px;
+}
+.gigs > li .date {
+    
+    background-color: red;
+    width: 60px;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+}
+.gigs > li .date .month {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 6px;
+}
+.gigs > li .date .day {
+    background-color: #f7f7f7;
+    color: #333;
+    font-size: 20px;
+    padding: 6px 12px;
+}
+.gigs > li .details .artist {
+    font-weight:bold;
+    display:block;
+
+}
+.gigs > li .details .genre {
+    font-size:15px;
+}
+
+.gigs > li .actions {
+    font-size: 15px;
+    display: none;
+}
+
+.gigs > li :hover .actions {
+    display: block;
+}
+
+.verticalspacing{
+    margin-top: 40px;
+}
+
+#search-gig {
+    width:300px;
+}
